@@ -10,6 +10,7 @@ const usuariosGet = async(req = request, res = response) => {
     //     .skip(Number(desde))
     //     .limit(Number(limite));
     // const total = await Usuario.countDocuments( { estado: true } );
+    // console.log(total);
     
     // Para retornar el usuarios y el total de manera simultanea 
     const [total, usuarios] = await Promise.all([
@@ -60,6 +61,7 @@ const usuariosDelete = async(req, res) => {
 
     // Borrar usuario cambiando el estado a false
     const usuario = await Usuario.findByIdAndUpdate( id, { estado: false });
+    // const usuarioAutenticado = req.usuario;
 
     res.json(usuario);
 }
